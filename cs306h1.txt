@@ -1,0 +1,36 @@
+1. Advantages: FOSS Software, greater scientific and programming capabilities. 
+Disadvantages: Less access to some proprietary software, occassional driver difficulty for device compatability
+
+2. Drives are mounted as parts of the greater root system.
+
+3. While it could be either a directory named "testdir" or a file named "testdir" that has no filename expansion, technically directories are also files in Linux
+
+4. No, not every music player is guaranteed to have the codec to decode mp3, and the file could not actually contain mp3 data and wrapper in the first place
+
+5. Yes, the only characters Linux does not permit is / and \0
+
+6. No, Linux does not permit / as a character in filenames, to avoid discrepencies with directory separators
+
+7. Linux terminal considers spaces as breaks in arguments, so you have to make multiple words one argument by putting quotes around them
+
+8. pwd, echo $PWD
+
+9. A hard link is a file that points to the same memory as a file in another location. A soft link links to another file. When one hard link is changed, the other file also reflects those changes. 
+
+10. To move a file to a new location and to rename a file
+
+11. To create a new empty file and to update the date of last modification on a file
+
+12. Pipeliness can run in parallel and execute sections of command simultaneously
+
+13. ls -la | wc -l
+
+14. Effective user and groups IDs are changable IDs that can be given to users and groups to access certain things they normally wouldn't have the privilege to do
+
+15. a-a-testx1.txt ; b-x-tst22.wav ; c-@-test%1.css ; a-<-test!3.aac ; b-7-tst^4.ogg
+
+16. chmod 675 test.txt
+
+17. chmod u+x test.txt
+
+18. The program did not finish successfully, some error occurred. 
