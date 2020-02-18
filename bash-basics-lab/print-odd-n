@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+n=1
+
+while [[ $n -le $1 ]]
+do
+	echo $n
+	n=$(($n+2))
+done
