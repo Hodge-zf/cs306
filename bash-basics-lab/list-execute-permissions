@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+ls -la $1 | find ./ -type f -executable
+ls -la $1 | find ./ -type f -executable | wc -l
+ 
