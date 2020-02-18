@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+echo -e "You entered $1\n"
+
+winCondition=$((RANDOM%20))
+
+if [[ $1 -eq $winCondition ]]; then
+	echo "You won!"
+
+elif [[ $1 -lt $winCondition ]]; then
+	echo -e "Your guess is less than the number\n"
+
+elif [[ $1 -gt $winCondition ]]; then
+	echo -e "Your guess is greater than the number\n"
+
+else
+	echo -e "Error detected, exiting"
+	exit 1
+fi
+
+exit 0
