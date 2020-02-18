@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+echo -e "Enter your name:"
+
+read user_name
+
+echo -e "Hello, $user_name"
