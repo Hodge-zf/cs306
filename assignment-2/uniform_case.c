@@ -24,29 +24,34 @@ int main(int argc, char * argv[]){
 void change_case(int length, char * string[]){
 
   int current_index = 0;
-  int current_char = 0;
+  char current_char = 'A';
 
   printf("%d", length);
   char * input_buffer = (char *)malloc(length * sizeof(char *));
 
   if(input_buffer == NULL){
-    printf("%s", "Malloc failure, exiting...\n");
-    exit;
+    fprintf(stderr, "Malloc failure, exiting...\n");
+    exit(EXIT_FAILURE);
   }
   else{
     printf("%s", "\nmalloc success\n");
   }
+  printf("%c", current_char);
+  printf("\n");
 
-/*
-    while(current_char != -1){
+  while(TRUE){
       while(current_index < length){
-        current_char = input;
+
+//      current_char = **(string+2);
+      printf("%c", current_char);
 
         if(current_char == '\0'){ break; }
 
         else{
-          printf("%d", current_char);
+//          input_buffer[current_index] = string[current_index];
         }
+        current_index++;
       }
-    } */
+      break;
+    }
 }
