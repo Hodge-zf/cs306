@@ -8,12 +8,24 @@
 #define TRUE 1
 
 char * flatten_cases(char * input_string);
+void print_list(char ** data);
 
 int main(int argc, char * argv[]){
 
-  for(int j = 1; j < argc; j++){
-    flatten_cases(argv[j]);
+  int buffer_size = 100;
+
+  char ** output_data = malloc(buffer_size * sizeof(char));
+
+  if(output_data == NULL){
+    fprintf(stderr, "malloc failure...\n");
+    exit(EXIT_FAILURE);
   }
+
+  for(int j = 1; j < argc; j++){
+    output_data[j-1] = flatten_cases(argv[j]);
+  }
+
+  print_list(output_data);
 
   return 0;
 }
@@ -65,4 +77,15 @@ char * flatten_cases(char * input_string){
   printf("%s",input_buffer);
   printf("\n\n");
   return input_buffer;
+}
+
+void print_list(char ** data){
+  printf("Your final list is: \n");
+  int i = 0;
+  while(data[i] > "\0"){
+    fprintf(stdout, data[i]);
+    printf(" ");
+    i++;
+  }
+  printf("\n\n");
 }
