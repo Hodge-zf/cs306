@@ -2,23 +2,16 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <ctype.h>
 
 #define FALSE 0
 #define TRUE 1
 
-// char * change_case(int length, char * string[]);
 
 int main(int argc, char * argv[]){
 
-  printf("%s",argv[1]);
-
   char * initial_string = argv[1];
   int length = strlen(initial_string);
-  printf("%d", length);
-  printf("\n");
-
-
-//this line down copied
 
   int current_index = 0;
   char input_char;
@@ -30,65 +23,39 @@ int main(int argc, char * argv[]){
     exit(EXIT_FAILURE);
   }
   else{
-    printf("%s", "\nmalloc success\n");
+
   }
   printf("\n");
 
-  while(TRUE){
-      while(current_index < length){
-
-        input_char = initial_string[current_index];
-
-        if(input_char == '\0'){ break; }
-
-        else{
+  while(initial_string[current_index] < 65){
+    input_char = initial_string[current_index];
+        if(input_char != '\0'){
           input_buffer[current_index] = input_char;
-        }
+          current_index++;
+          }
+  }
+
+  if(initial_string[current_index] >= 65 && initial_string[current_index] <=90){
+    printf("Changing to uppercase...\n");
+    while(current_index < length){
+      input_char = initial_string[current_index];
+      input_buffer[current_index] = toupper(input_char);
+      current_index++;
+    }
+  }
+
+    else if(initial_string[current_index] >= 97 && initial_string[current_index] <=122){
+      printf("Changing to lowercase...\n");
+      while(current_index < length){
+        input_char = initial_string[current_index];
+        input_buffer[current_index] = tolower(input_char);
         current_index++;
       }
-      break;
     }
-    printf("%s",input_buffer);
 
 
-//  char * newstring = change_case(length, &initial_string);
-
-//  printf("%s\n", newstring);
-
+  printf("%s",input_buffer);
+  printf("\n\n");
 
   return 0;
 }
-
-/* char * change_case(int length, char * string[]){
-
-  int current_index = 1;
-  char input_char;
-
-  printf("%d", length);
-  char * input_buffer = (char *)malloc(length * sizeof(char *));
-
-  if(input_buffer == NULL){
-    fprintf(stderr, "Malloc failure, exiting...\n");
-    exit(EXIT_FAILURE);
-  }
-  else{
-    printf("%s", "\nmalloc success\n");
-  }
-  printf("\n");
-
-  while(TRUE){
-      while(current_index < length){
-
-        input_char = string[current_index];
-        printf("%c", input_char);
-
-        if(input_char == '\0'){ break; }
-
-        else{
-          input_buffer[current_index] = input_char;
-        }
-        current_index++;
-      }
-      return input_buffer;
-    }
-}*/
