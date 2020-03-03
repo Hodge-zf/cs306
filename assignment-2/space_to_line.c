@@ -15,8 +15,19 @@ int main(){
     exit(EXIT_FAILURE);
   }
 
-
   while(input_char != '.'){
+
+      if(char_counter >= buffer_size){
+        printf("Resizing...\n");
+        buffer_size = buffer_size * 2;
+        char * temp = realloc(line_buffer, buffer_size);
+
+        if(temp == NULL){
+          fprintf(stderr, "realloc failure...\n");
+          exit(EXIT_FAILURE);
+        }
+        line_buffer = temp;
+      }
 
     input_char = getchar();
 
@@ -27,10 +38,7 @@ int main(){
     char_counter++;
   }
 
-  //int length = strlen(line_buffer);
-  //for(int i = 0; i < length; i++){
   fprintf(stdout, line_buffer);
-
 
   printf("%c", '\n');
   return 0;
