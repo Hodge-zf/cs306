@@ -27,42 +27,35 @@ int main(int argc, char * argv[]){
   }
   printf("\n");
 
-    while(TRUE){
-        while(current_index < length){
-
-          if(initial_string[current_index] < 65){
-            input_char = initial_string[current_index];
-            if(input_char != '\0'){
-              input_buffer[current_index] = input_char;
-              printf("%c", input_buffer[current_index]);
-              current_index++;
-            }
+  while(initial_string[current_index] < 65){
+    input_char = initial_string[current_index];
+        if(input_char != '\0'){
+          input_buffer[current_index] = input_char;
+          current_index++;
           }
+  }
 
-          else if(initial_string[current_index] >= 65 && initial_string[current_index] <=90){
-            printf("Changing to lowercase...\n");
-            while(input_char != '\0'){
-                input_char = initial_string[current_index];
-                input_buffer[current_index] = tolower(input_char);
-                current_index++;
-            }
-            break;
-          }
-          else if(initial_string[current_index] >= 97 && initial_string[current_index] <=122){
-            printf("Changing to uppercase...\n");
-            while(input_char != '\0'){
-                input_char = initial_string[current_index];
-                input_buffer[current_index] = toupper(input_char);
-                current_index++;
-            }
-            break;
-          }
-
-        }
-        break;
+  if(initial_string[current_index] >= 65 && initial_string[current_index] <=90){
+    printf("Changing to uppercase...\n");
+    while(current_index < length){
+      input_char = initial_string[current_index];
+      input_buffer[current_index] = toupper(input_char);
+      current_index++;
     }
-    printf("%s",input_buffer);
-    printf("\n\n");
+  }
+
+    else if(initial_string[current_index] >= 97 && initial_string[current_index] <=122){
+      printf("Changing to lowercase...\n");
+      while(current_index < length){
+        input_char = initial_string[current_index];
+        input_buffer[current_index] = tolower(input_char);
+        current_index++;
+      }
+    }
+
+
+  printf("%s",input_buffer);
+  printf("\n\n");
 
   return 0;
 }
