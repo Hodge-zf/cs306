@@ -6,25 +6,63 @@
 #define FALSE 0
 #define TRUE 1
 
-void change_case(int length, char * string[]);
+// char * change_case(int length, char * string[]);
 
 int main(int argc, char * argv[]){
 
-  int length = strlen(argv[1]);
+  printf("%s",argv[1]);
 
-  change_case(length, argv);
+  char * initial_string = argv[1];
+  int length = strlen(initial_string);
+  printf("%d", length);
+  printf("\n");
 
-  //for(int i = 1; i < argc; i++){
-  printf("%s\n", argv[1]);
-  //}
+
+//this line down copied
+
+  int current_index = 0;
+  char input_char;
+
+  char * input_buffer = (char *)malloc(length * sizeof(char *));
+
+  if(input_buffer == NULL){
+    fprintf(stderr, "Malloc failure, exiting...\n");
+    exit(EXIT_FAILURE);
+  }
+  else{
+    printf("%s", "\nmalloc success\n");
+  }
+  printf("\n");
+
+  while(TRUE){
+      while(current_index < length){
+
+        input_char = initial_string[current_index];
+
+        if(input_char == '\0'){ break; }
+
+        else{
+          input_buffer[current_index] = input_char;
+        }
+        current_index++;
+      }
+      break;
+    }
+    printf("%s",input_buffer);
+
+
+//  char * newstring = change_case(length, &initial_string);
+
+//  printf("%s\n", newstring);
+
 
   return 0;
 }
 
-void change_case(int length, char * string[]){
+/* char * change_case(int length, char * string[]){
 
-  int current_index = 0;
-  char current_char = 'A';
+  int current_index = 1;
+  char input_char;
 
   printf("%d", length);
   char * input_buffer = (char *)malloc(length * sizeof(char *));
@@ -36,22 +74,21 @@ void change_case(int length, char * string[]){
   else{
     printf("%s", "\nmalloc success\n");
   }
-  printf("%c", current_char);
   printf("\n");
 
   while(TRUE){
       while(current_index < length){
 
-//      current_char = **(string+2);
-      printf("%c", current_char);
+        input_char = string[current_index];
+        printf("%c", input_char);
 
-        if(current_char == '\0'){ break; }
+        if(input_char == '\0'){ break; }
 
         else{
-//          input_buffer[current_index] = string[current_index];
+          input_buffer[current_index] = input_char;
         }
         current_index++;
       }
-      break;
+      return input_buffer;
     }
-}
+}*/
