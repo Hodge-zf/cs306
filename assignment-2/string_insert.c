@@ -19,8 +19,6 @@ int main(int argc, char * argv[]){
   char * string2 = argv[3];
   int insertion_index = atoi(argv[2]);
 
-  //subtracting off 1 char for the two terminator chars
-  //might cause issue down the road, delete if so
   char * final_string = (char *)malloc((sizeof(string1)*sizeof(string2)-sizeof(char)));
 
   if(final_string == NULL){
@@ -33,8 +31,7 @@ int main(int argc, char * argv[]){
   int counter3 = 0;
 
   while(TRUE){
-//    printf("performing copy...\n");
-    if(counter1 < insertion_index-1){
+    if(counter1 < insertion_index){
       final_string[counter1] = string1[counter2];
       counter1++;
       counter2++;
